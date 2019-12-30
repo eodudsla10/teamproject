@@ -36,7 +36,7 @@ def GetProductImformationList(link):
     #page = requests.get(URL)
     #finance_html = soup.select('div.area_links')
         return list_property
-print(GetProductImformationList(0))
+#print(GetProductImformationList(0))
 
 # 페이지1 부동산 가격
 def GetProductPriceList(link):
@@ -48,10 +48,9 @@ def GetProductPriceList(link):
         source = go.read()
         go.close()
         soup = BeautifulSoup(source, 'html.parser')
-        for all in soup.find('tbody'):
-            for all_range in soup.find_all('td', class_='title'):
-                list_property.append(str(all_range))
+        for all_range in soup.find_all('span' , class_='price'):
+            list_property.append(str(all_range))
     #page = requests.get(URL)
     #finance_html = soup.select('div.area_links')
         return list_property
-#print(GetProductPriceList(0))
+print(GetProductPriceList(0))
