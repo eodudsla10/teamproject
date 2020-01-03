@@ -25,7 +25,7 @@ for page_number in range(1, maximum+1):
 	response = requests.get(URL)
 	whole_source = whole_source + response.text
 soup = BeautifulSoup(whole_source, 'html.parser')
-find_title = soup.select("#content > td.title > div.title-text")
+find_title = soup.select('div', class_='title-text')
 #find_title = soup.select("#content > div.section_headline > ul > li > dl > dt > a")
 #find_title = soup.select('td', class_='title')
 #find_title = soup.select('td', class_='image center')

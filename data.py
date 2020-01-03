@@ -21,6 +21,9 @@ def GetProductImageList(link):
         return list_property
 #print(GetProductImageList(0))
 
+
+
+
 # 페이지1 부동산 설명글
 def GetProductImformationList(link):
     if link == 0:
@@ -36,7 +39,16 @@ def GetProductImformationList(link):
     #page = requests.get(URL)
     #finance_html = soup.select('div.area_links')
         return list_property
-#print(GetProductImformationList(0))
+print(GetProductImformationList(0))
+
+
+
+
+
+
+
+
+
 
 # 페이지1 부동산 가격
 def GetProductPriceList(link):
@@ -53,4 +65,4 @@ def GetProductPriceList(link):
     #page = requests.get(URL)
     #finance_html = soup.select('div.area_links')
         return list_property
-print(GetProductPriceList(0))
+#print(GetProductPriceList(0))
