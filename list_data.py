@@ -43,7 +43,7 @@ def GetProductCategory(link):
         return list_property
 #print(GetProductCategory(0))
 
-# 페이지1 부동산 가격
+# 부동산 가격
 def GetProductPrice(link):
     if link == 0:
         list_property = []

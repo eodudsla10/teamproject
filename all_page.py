@@ -3,7 +3,7 @@ import urllib.parse
 import requests
 from bs4 import BeautifulSoup
 import re
-import datetime
+
 
 # 부동산 내용
 def crawler():
@@ -30,17 +30,18 @@ def category():
     for article in articles:
         category = article.select_one('a').text
         print(category)
-
 category()
 #find_title = soup.select("#content > div.section_headline > ul > li > dl > dt > a")
 
-#올린날짜
-def date():
-    for page in range(3):
-        raw = requests.get('https://rent.heykorean.com/web/us/property/list?cp=' + str(page), headers={'User-Agent': 'Mozilla/5.0'})
-        html = BeautifulSoup(raw, 'html.parser')
-        articles = html.select('table.rent-list-table > tbody > tr')
-        for article in articles:
-            journal2 = article.select_one("td.date center")
-            print(journal2)
-date()
+
+# 부동산 올린 날짜
+def GetProductImageList(link):
+    if link == 0:
+        list_property = []
+        for page in range(3):
+            raw = requests.get('https://rent.heykorean.com/web/us/property/list?cp=' + str(page), headers={'User-Agent': 'Mozilla/5.0'}).text
+            soup = BeautifulSoup(raw, 'html.parser')
+            for all_range in soup.find_all('td', class_='date center'):
+                list_property.append(str(all_range.text))
+        return list_property
+print(GetProductImageList(0))
